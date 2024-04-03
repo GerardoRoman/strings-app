@@ -1,0 +1,5 @@
+/l
+\l
+create database strings_app;
+create database strings_app;
+\s strings_app

@@ -1,4 +1,3 @@
-
 import { faker } from "@faker-js/faker";
 import bcrypt from 'bcrypt';
 import { getClient } from "@/db";

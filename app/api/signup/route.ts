@@ -10,16 +10,8 @@ export async function POST(request: Request) {
     [json.username]
   );
 
-  // Check if res is not null and res.rowCount is not undefined
-  if (res !== null && res.rowCount !== undefined) {
-    if (res.rowCount > 0) {
-      return NextResponse.json({ error: "user already exists" }, { status: 400 });
-    }
-  } else {
-    // Handle the case where res or res.rowCount is null or undefined
-    console.error("Error: Database response or rowCount is null or undefined");
-    // Add appropriate error handling or return a response indicating an error
-    return NextResponse.json({ error: "Database error" }, { status: 500 });
+  if (res!.rowCount > 0) {
+    return NextResponse.json({ error: "user already exists" }, { status: 400 });
   }
 
   const saltRounds = 10;

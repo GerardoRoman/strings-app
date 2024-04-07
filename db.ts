@@ -9,7 +9,7 @@ export async function getClient(): Promise<Client> {
     const client = new Client({
       connectionString: process.env.POSTGRES_URL + "?sslmode=require",
     });
-    return client
+    return client;
   }
   const client = new Client({
     user: process.env.POSTGRES_USER,

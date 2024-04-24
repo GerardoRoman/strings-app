@@ -19,7 +19,7 @@ function PostList({
     <ul>
       {data.data.map((post: PostI) => {
         return (
-          <li className="my-5">
+          <li className="my-5" key={post.id}>
             <Post post={post} />
           </li>
         )

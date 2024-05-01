@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import useSWR, { mutate } from "swr";
 
 export default function UserPageHeader({username}: {username: string}) {
@@ -18,10 +19,14 @@ export default function UserPageHeader({username}: {username: string}) {
 
   console.log(dataUser, dataFollow);
 
+  if(dataUser.data.length == 0) {
+    notFound();
+  }
+
 
   async function handleUnfollow() {
     const res = await fetch("/api/follows/" + user.id, {
-      method: "delete"
+      method: "delete",
     });
     if (res.ok) {
       mutate("/api/follows?user_id=" + user.id)

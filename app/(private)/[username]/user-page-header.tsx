@@ -18,6 +18,7 @@ export default function UserPageHeader({username}: {username: string}) {
 
   console.log(dataUser, dataFollow);
 
+
   async function handleUnfollow() {
     const res = await fetch("/api/follows/" + user.id, {
       method: "delete"
@@ -40,13 +41,13 @@ export default function UserPageHeader({username}: {username: string}) {
   }
 
   return (
-    <header className="w-full bg-slate-800 p-2 rounded-lg">
+    <header className="w-full bg-slate-800 p-2 rounded-lg flex flex-row justify-between">
         <h1 className="text-lg font-bold">{username}</h1>
         {dataFollow.data.length > 0 && (
-          <button onClick={handleUnfollow} className="bg-slate-900 p-2 rounded-lg flex flex-row justify-between">Unfollow</button>
+          <button onClick={handleUnfollow} className="bg-slate-900 p-2 rounded-lg">Unfollow</button>
         )}
         {dataFollow.data.length == 0 && (
-          <button onClick={handleFollow} className="bg-slate-900 p-2 rounded-lg flex flex-row justify-between">Follow</button>
+          <button onClick={handleFollow} className="bg-slate-900 p-2 rounded-lg">Follow</button>
         )}
     </header>
   )

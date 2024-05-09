@@ -20,7 +20,7 @@ function Form() {
 
 
     const res = await fetch("/api/signup", {
-      method: "post",
+      method: "POST",
       body: JSON.stringify({ username, password }),
     })
     if (res.ok) {
@@ -29,6 +29,7 @@ function Form() {
       alert("sign up failed");
     }
   }
+  
   return (
     <form onSubmit={handleSubmit}
     className="flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg">
